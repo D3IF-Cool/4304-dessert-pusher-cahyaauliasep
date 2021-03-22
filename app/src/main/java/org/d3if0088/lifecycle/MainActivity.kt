@@ -6,15 +6,19 @@ import android.util.Log
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var dessertTimer: DessertTimer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Timber.i("onCreate called")
         setContentView(R.layout.activity_main)
+        dessertTimer = DessertTimer()
     }
 
     override fun onStart() {
         super.onStart()
         Timber.i("onStart Called")
+        dessertTimer.startTimer()
     }
 
     override fun onResume() {
@@ -30,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Timber.i("onStop Called")
+        dessertTimer.stopTimer()
     }
 
     override fun onDestroy() {
